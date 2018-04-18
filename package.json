@@ -1,0 +1,24 @@
+{
+  "name": "collection-reducer",
+  "version": "0.1.0",
+  "description": "Redux reducer for a collection of items",
+  "main": "./distribution/index.js",
+  "scripts": {
+    "test": "jest",
+    "test-watch": "jest --watch",
+    "build": "babel src --out-dir distribution",
+    "prepublish": "npm run build"
+  },
+  "keywords": [
+    "redux",
+    "reducer",
+    "collection"
+  ],
+  "author": "Draltan MARIN <moi@draltan.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "6.26.0",
+    "babel-preset-env": "1.6.1",
+    "jest": "22.4.3"
+  }
+}
