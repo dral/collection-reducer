@@ -3,8 +3,9 @@ export const actionsFilter = (...actionsTypes) => (type) => actionsTypes.include
 /**
  */
 
-const reducer = (itemReducer, filterActionType) => (state = {}, action) => {
-  const { type, id } = action;
+const reducer = (itemReducer, filterActionType, idkey = "id") => (state = {}, action) => {
+  const id = action[idkey];
+  const type = action.type;
   if (filterActionType(type) && id) {
     let newState = {...state};
     let newItemState = itemReducer(state[id], action);

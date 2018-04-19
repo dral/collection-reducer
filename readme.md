@@ -51,6 +51,9 @@ const counterCollection = collectionReducer(
 // If the individual item's reducer returns `undefined` for a given
 // action the item is removed from the collection.
 
+// The `id` key can be customized by passing a custom id key as a third argument.
+// collectionReducer(reducer, filter [, customId])
+
 // `itemSelectors` transform each selector for use in the collection adding
 // an id argument to it.
 const selectors = itemSelectors(counterSelectors);

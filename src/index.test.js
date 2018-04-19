@@ -182,3 +182,22 @@ test('attempt to use a selector on an item not in the collection should return u
 
   expect(selectors.get(state1, "2")).toBe(undefined);
 })
+
+test('allow custom key for id', () => {
+  const customIdCounterCollection = collectionReducer(
+    counter,
+    actionsFilter(...actionTypes),
+    "_id"
+  );
+
+  let state0 = {};
+
+  let state1 = customIdCounterCollection(state0, {
+    type: "COUNTER_START",
+    _id: "1",
+  });
+
+  expect(state1).toEqual({
+    "1": 0
+  });
+})
