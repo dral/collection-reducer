@@ -7,14 +7,14 @@ const reducer = (itemReducer, filterActionType, idkey = "id") => (state = {}, ac
   const id = action[idkey];
   const type = action.type;
   if (filterActionType(type) && id) {
-    let newState = {...state};
     let newItemState = itemReducer(state[id], action);
     if (newItemState !== undefined) {
       return {
-        ...newState,
-        [id]: itemReducer(state[id], action),
+        ...state,
+        [id]: newItemState,
       };
     } else {
+      let newState = {...state};
       delete newState[id];
       return newState;
     }
